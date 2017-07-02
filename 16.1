@@ -1,0 +1,23 @@
+create table if not exists emp_sal
+(
+id int
+name string,
+sal int,
+dept string
+)
+row format delimited
+fields terminated by '\t';
+
+
+LOAD DATA 
+LOCAL INPATH '/home/acadgild/hive/emp_sal.txt'
+INTO TABLE emp_sal;
+
+
+1)
+
+JOIN
+SELECT * from emp_sal GROUP by dept
+
+
+2)SELECT * from emp_sal GROUP by dept HAVING sal > AVG(sal);
